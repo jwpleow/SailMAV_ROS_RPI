@@ -29,17 +29,15 @@ int main(int argc, char** argv)
     Camera::CameraBase camera(capture_string);
     ros::init(argc, argv, "camera_publisher");
 
-    const std::string cam_topic = "/camera";
+    const std::string cam_topic = "/stereo/image";
     ros::NodeHandle nh;
 
-    // ros::Publisher image_pub = n.advertise<sensor_msgs::Image>("/camera/raw", 2);
     image_transport::ImageTransport it(nh);
     image_transport::Publisher image_pub = it.advertise(cam_topic, 1);
 
     ros::Rate rate(30.0);
 
     uint32_t seq = 0;
-
     cv::Mat frame, frame_mono;
     int64_t timestamp;
     if (ros::ok())
