@@ -18,7 +18,7 @@ void publishImage(const image_transport::Publisher& pub, const cv::Mat& image, c
     sensor_msgs::ImagePtr msg;
     std_msgs::Header header;
     header.stamp.sec = timestamp / 1000;
-    header.stamp.nsec = (timestamp % 1000) * 10000;
+    header.stamp.nsec = (timestamp % 1000) * 1000000;
     msg = cv_bridge::CvImage(header, encoding, image).toImageMsg();
     pub.publish(msg);
 }
