@@ -1,6 +1,9 @@
 # Raspberry Pi ROS nodes
-Publishes the raw camera feed to '/camera'   
-Publishes the IMU to '/imu'
+Publishes the raw camera feed to `/camera`   
+Publishes the IMU linear accel and gyro to `/imu/data_raw`   
+Publishes the IMU magnetometer readings to `/imu/mag`
+
+=> can then use imu_tools madgwick filter to get orientation
 
 ## Dependencies
 ```
