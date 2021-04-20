@@ -1,0 +1,3 @@
+[submodule "LSM9DS1_RPI_ROS"]
+	path = LSM9DS1_RPI_ROS
+	url = https://github.com/jwpleow/LSM9DS1_RPI_ROS.git

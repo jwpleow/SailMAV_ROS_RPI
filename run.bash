@@ -14,4 +14,4 @@ echo "ROS_MASTER_URI: $ROS_MASTER_URI"
 echo "ROS_IP: $ROS_IP"
 
 dir=$(pwd)
-${dir}/camera_ros/build/camera_publisher & ${dir}/lsm9ds1_rpi_grpc/build/imu_ros
+${dir}/camera_ros/build/camera_publisher & ${dir}/LSM9DS1_RPI_ROS/build/imu_ros
