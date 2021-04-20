@@ -4,10 +4,10 @@
 namespace Camera
 {
 
-CameraBase::CameraBase(const std::string& capture_string)
+CameraBase::CameraBase()
 : frame_buffer(4)
 {
-    if (!openVideoCapture(capture_string))
+    if (!openVideoCapture())
     {
         throw std::runtime_error("Error: Could not open camera!\n");
     }
@@ -24,7 +24,7 @@ CameraBase::~CameraBase()
     video_capture.release();
 }
 
-bool CameraBase::openVideoCapture(const std::string& capture_string)
+bool CameraBase::openVideoCapture()
 {
     std::cout << "Attempting to connect to VideoCapture...\n";
     if (video_capture.open(0, cv::CAP_GSTREAMER))

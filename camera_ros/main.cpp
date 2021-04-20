@@ -25,8 +25,7 @@ void publishImage(const image_transport::Publisher& pub, const cv::Mat& image, c
 
 int main(int argc, char** argv)
 {
-    std::string capture_string = "v4l2src ! video/x-raw, width=1280, height=400, format=GRAY8 ! videoconvert ! video/x-raw, format=I420 ! appsink";
-    Camera::CameraBase camera(capture_string);
+    Camera::CameraBase camera;
     ros::init(argc, argv, "camera_publisher");
 
     const std::string cam_topic = "/stereo/image";

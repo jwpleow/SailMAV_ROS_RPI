@@ -22,14 +22,14 @@ namespace Camera{
 class CameraBase
 {
     public:
-    CameraBase(const std::string& capture_string);
+    CameraBase();
     virtual ~CameraBase();
 
     int64_t read(cv::Mat& frame); // returns timestamp (ms from epoch) and frame
 
     protected:
     // opens VideoCapture
-    bool openVideoCapture(const std::string& capture_string);
+    bool openVideoCapture();
     // updates last_frame
     void update();
     // starts update() in a thread
