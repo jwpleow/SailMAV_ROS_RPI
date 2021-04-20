@@ -1,3 +1,0 @@
-[submodule "lsm9ds1_rpi_grpc"]
-	path = lsm9ds1_rpi_grpc
-	url = https://github.com/jwpleow/lsm9ds1_rpi_grpc.git
