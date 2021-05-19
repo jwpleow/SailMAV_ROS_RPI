@@ -1,3 +1,3 @@
-[submodule "LSM9DS1_RPI_ROS"]
-	path = LSM9DS1_RPI_ROS
-	url = https://github.com/jwpleow/LSM9DS1_RPI_ROS.git
+[submodule "src/ICM20948_ROS_Publisher_Py"]
+	path = src/ICM20948_ROS_Publisher_Py
+	url = https://github.com/jwpleow/ICM20948_ROS_Publisher_Py.git

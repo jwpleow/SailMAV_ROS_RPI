@@ -13,8 +13,9 @@ export ROS_IP=${rpi_ip}
 echo "ROS_MASTER_URI: $ROS_MASTER_URI"
 echo "ROS_IP: $ROS_IP"
 
+source devel/setup.bash
 dir=$(pwd)
-${dir}/camera_ros/build/camera_publisher & ${dir}/LSM9DS1_RPI_ROS/build/imu_ros &
+${dir}/camera_ros/build/camera_publisher & rosrun ros_icm20948_publisher ros_imu_publisher.py &
 
 # set better default gain
 sleep 10
