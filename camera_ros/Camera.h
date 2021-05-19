@@ -9,6 +9,7 @@
 #include <chrono>
 #include <mutex>
 
+#include "ros/ros.h"
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
@@ -25,7 +26,7 @@ class CameraBase
     CameraBase();
     virtual ~CameraBase();
 
-    int64_t read(cv::Mat& frame); // returns timestamp (ms from epoch) and frame
+    void read(cv::Mat& frame, ros::Time& timestamp); // returns timestamp and frame
 
     protected:
     // opens VideoCapture
@@ -41,9 +42,9 @@ class CameraBase
     int frame_height;
 
     cv::VideoCapture video_capture;
-    rigtorp::SPSCQueue<std::pair<cv::Mat, int64_t>> frame_buffer; // pair of image and timestamp in ms (epoch)
+    rigtorp::SPSCQueue<std::pair<cv::Mat, ros::Time>> frame_buffer; // pair of image and timestamp in ms (epoch)
     cv::Mat last_frame;
-    int64_t last_frame_timestamp; // timestamp in ms
+    ros::Time last_frame_timestamp;
     std::thread frame_read_thread;
     std::mutex frame_read_lock;
     std::atomic<bool> grabOn;

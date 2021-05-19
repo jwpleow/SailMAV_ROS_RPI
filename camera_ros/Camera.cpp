@@ -49,10 +49,10 @@ void CameraBase::update()
 {
     fps.init();
     cv::Mat temp;
-    int64_t temp_timestamp;
+    ros::Time temp_timestamp;
     while (grabOn.load() == true)
     {
-        temp_timestamp = Utils::getMsSinceEpoch();
+        temp_timestamp = ros::Time::now();
         video_capture >> temp;
         {
             std::lock_guard<std::mutex> scopeLock(frame_read_lock);
@@ -70,9 +70,9 @@ void CameraBase::startUpdateThread()
     frame_read_thread = std::thread(&CameraBase::update, this);
 }
 
-int64_t CameraBase::read(cv::Mat& frame)
+void CameraBase::read(cv::Mat& frame, ros::Time& timestamp)
 {
-    std::pair<cv::Mat, int64_t> temp;
+    std::pair<cv::Mat, ros::Time> temp;
 
     int n;
     while (frame_buffer.empty())
@@ -88,7 +88,7 @@ int64_t CameraBase::read(cv::Mat& frame)
         frame = temp.first.clone();
         frame_buffer.pop();
     }
-    return temp.second;
+    timestamp = temp.second;
 }
 
 } // namespace Camera

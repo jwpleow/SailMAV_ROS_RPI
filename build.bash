@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /opt/ros/melodic/setup.bash
+
 dir=$(pwd)
 mkdir -p ${dir}/camera_ros/build
 cd ${dir}/camera_ros/build
