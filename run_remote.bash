@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# kill all subshells and processes on exit
+trap "kill 0" SIGINT
+
 # source ros
 source /opt/ros/melodic/setup.bash
 
