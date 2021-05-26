@@ -22,7 +22,7 @@ ${dir}/camera_ros/build/camera_publisher & rosrun ros_icm20948_publisher ros_imu
 
 # set better default gain
 sleep 10
-v4l2-ctl --set-ctrl=gain=6
+v4l2-ctl --set-ctrl=gain=4
 sleep 2
-v4l2-ctl --set-ctrl=gain=5
+v4l2-ctl --set-ctrl=gain=3
 wait

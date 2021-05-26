@@ -1,3 +1,4 @@
+trap "kill 0" SIGINT
 source /opt/ros/melodic/setup.bash
 dir=$(pwd)
 ${dir}/run_local.bash & 
